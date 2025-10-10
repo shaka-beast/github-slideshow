@@ -27,10 +27,8 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100`}>
         <header className="border-b">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="font-semibold">Okolea</a>
-            <nav className="text-sm text-gray-600">
-              <a href="/campaigns/new" className="hover:underline">Start a campaign</a>
-            </nav>
+            <Logo />
+            <NavLinks />
           </div>
         </header>
         <main className="container mx-auto px-4 py-6">{children}</main>
@@ -40,4 +38,17 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+import Link from 'next/link'
+function Logo() {
+  return <Link href="/" className="font-semibold">Okolea</Link>
+}
+
+function NavLinks() {
+  return (
+    <nav className="text-sm text-gray-600">
+      <Link href="/campaigns/new" className="hover:underline">Start a campaign</Link>
+    </nav>
+  )
 }
